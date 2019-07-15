@@ -1,0 +1,41 @@
+{
+  "manifest_version": 2,
+  "name": "ApiReader",
+  "description": "This extension reads data from api",
+  "version": "1.0",
+  "icons": {
+    "128": "icon128.png",
+    "48": "icon48.png",
+    "16": "icon16.png"
+  },
+  "page_action": {
+    "default_icon": "icon16.png",
+    "default_popup": "popup.html",
+    "default_title": "ApiReader"
+  },
+  "background": {
+    "scripts": [
+      "javascript/eventPage.js"
+    ],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.google.com/*"
+      ],
+      "js": [
+        "javascript/content.js"
+      ],
+      "css": [
+        "styles.css"
+      ]
+    }
+  ],
+  "permissions": [
+    "tabs",
+    "https://www.google.com/*",
+    "contextMenus",
+    "tts"
+  ]
+}
