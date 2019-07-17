@@ -4,17 +4,43 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
 <div class="container">
-    <label for="apiUri">Enter Email</label>
-    <input type="text" name="uri" id="apiUri">
-    <br><br>
-    <button id="btnChange">Submit</button>
+    <div class="card text-center">
+        <div class="card-header">
+            <img src="icon16.png" alt="..." class="img-thumbnail rounded float-left">
+            Featured
+        </div>
+        <div class="card-body">
+            <label for="apiUri" class="d-flex">Enter email</label>
+            <div class="input-group input-group-sm mb-3">
+                <input type="email" id="apiUri" class="form-control" aria-label="Sizing example input"
+                       placeholder="Enter email"
+                       aria-describedby="inputGroup-sizing-sm">
+            </div>
+            <button class="btn btn-primary btn-sm btn-lg btn-block" id="btnChange">Submit</button>
+        </div>
+        <h6 id="status">
+        </h6>
+    </div>
 </div>
 
 <script src="javascript/axios.js"></script>
 <script src="javascript/popup.js"></script>
-
 </body>
 </html>
+
+<!--    <div class="header">-->
+<!--        <h2>hello</h2>-->
+<!--    </div>-->
+<!--    <div class="mainDiv">-->
+<!--        <label for="apiUri">Enter Email</label>-->
+<!--        <input type="text" name="uri" id="apiUri">-->
+<!--        <button id="btnChange">Submit</button>-->
+<!--    </div>-->
+<!--    <div class="footer">-->
+<!--        <h2 id="status"></h2>-->
+<!--    </div>-->
