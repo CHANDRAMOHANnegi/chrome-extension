@@ -12,6 +12,7 @@ window.onload = function () {
         let isValid = false;
         let status = document.getElementById('status');
 
+
         let re = /^([0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})$/;
 
         if (inputBox.value && !re.test(inputBox.value)) {
@@ -31,6 +32,7 @@ window.onload = function () {
         const {tabs} = chrome;
 
         tabs.query({active: true, currentWindow: true}, (tabs) => {
+
             chrome.pageAction.show(tabs[0].id);
 
             let url = tabs[0].url;
@@ -55,10 +57,11 @@ window.onload = function () {
                 },
             }).then(backendResponse => {
                 const {probability} = backendResponse.data.value;
+                console.log(backendResponse.data);
                 console.log(probability);
 
                 if (probability === "100%") {
-                    console.log("email not found " + probability);
+                    console.log("email found " + probability);
                     status.innerText = "Email found"
                 } else if (probability === "50%") {
                     //************** call  to  google *****************
@@ -67,8 +70,6 @@ window.onload = function () {
                         url: URL,
                     }).then(response => {
                         const data = response.data;
-                        console.log(response);
-
                         const string = ["did not match any documents", "No results found for"];
                         string.forEach((string) => {
                             if (data.includes(string)) {
@@ -76,16 +77,18 @@ window.onload = function () {
                                 dataFound = false
                             }
                         });
+
                         status.innerText = "loading...";
+
                         if (dataFound) {
+                            console.log("email  found " + probability);
                             status.innerText = 'Email found';
                         } else {
+                            console.log("email not found " + probability);
                             status.innerText = "Email not found"
                         }
                     });
                 }
-
-
             }).catch(err => console.log(err));
 
         });

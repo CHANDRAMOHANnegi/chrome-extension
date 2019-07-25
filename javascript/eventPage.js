@@ -1,5 +1,5 @@
 // noinspection JSDeprecatedSymbols
-chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+chrome.runtime.onMessage.addListener((request) => {
     if (request.todo == "showPageAction") {
 
         const {tabs} = chrome;
@@ -11,12 +11,11 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
             let url = tabs[0].url;
             console.log(url)
         });
+
     }
 
 });
 
-
-//
 // const menuItem = {
 //     "id": "Speak",
 //     "title": "Speak",
